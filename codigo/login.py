@@ -27,8 +27,8 @@ class Aplicacion():
         self.ctext2 = Entry(self.raiz ,bg="#F4E8F4", border=2,textvariable=self.clave, width=30, show="*")
         self.separ1 = ttk.Separator (self.raiz,  orient=HORIZONTAL  ,style='My.TFrame')
 
-        self.boton1 = Button(self.raiz, padx=10, bd=5, text="to Accept", bg="purple", fg="white", cursor="hand1",command=self.valida)
-        self.boton2 = Button(self.raiz,padx=15, bd=5, text="Cancel", bg="purple", fg="white",cursor="hand1",command=quit)
+        self.boton1 = Button(self.raiz, padx=10, bd=5, text="Aceptar", bg="purple", fg="white", cursor="hand1",command=self.valida)
+        self.boton2 = Button(self.raiz,padx=15, bd=5, text="Cancelar", bg="purple", fg="white",cursor="hand1",command=quit)
         self.raiz.configure(background="#F4E8F4")
         self.img=PhotoImage(file="C:/Users/JANUS/Desktop/andres tachack/proyectos/mai.png")
         can.create_image(20,20,image=self.img,anchor=NW)
