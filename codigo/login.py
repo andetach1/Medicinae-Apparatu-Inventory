@@ -30,7 +30,7 @@ class Aplicacion():
         self.boton1 = Button(self.raiz, padx=10, bd=5, text="Aceptar", bg="purple", fg="white", cursor="hand1",command=self.valida)
         self.boton2 = Button(self.raiz,padx=15, bd=5, text="Cancelar", bg="purple", fg="white",cursor="hand1",command=quit)
         self.raiz.configure(background="#F4E8F4")
-        self.img=PhotoImage(file="C:/Users/JANUS/Desktop/andres tachack/proyectos/mai.png")
+        self.img=PhotoImage(file="C:/Users/ctach/OneDrive/Escritorio/universidad/GitHub/Medicinae-Apparatu-Inventory/codigo/mai.png")
         can.create_image(20,20,image=self.img,anchor=NW)
         can.configure(background="#F4E8F4")
 
@@ -50,9 +50,11 @@ class Aplicacion():
 
 
     def valida(self):
-        if self.clave.get() == 'tkinter':
-            self.etiq3.configure(foreground='blue')
-            self.mensa.set("Acceso permitido")
+        if self.clave.get() == 'tkinter' :
+            if  self.usuario.get() == 'admin':
+                self.etiq3.configure(foreground='blue')
+                self.mensa.set("Acceso permitido")
+                mi_app = Aplicacion("PRINCIPAL.pyW")
         else:
             self.etiq3.configure(foreground='red')
             self.mensa.set("Acceso denegado")
