@@ -1,0 +1,44 @@
+from tkinter import *
+
+root = Tk()
+root.state("zoomed")
+root.geometry("900x600")
+root.title("Medicinae Apparatu Inventory")
+root.iconbitmap('med.ico')
+root.config(cursor="hand2",bg="#f0f0f0")
+
+
+
+#Frame informacion del cliente 
+informacion = Frame(root, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
+
+#Nombre de la empresa dentro del frame
+nombre_cliente = Label(informacion, text="Harold Emmanuel Navas")
+nombre_cliente.place(x=4,y=6)
+nombre_cliente.config(bg="#650090", fg="white", font=("Courier New",13))
+
+
+
+navegacion_inferior = Frame(root, width=400, height= 35)
+navegacion_inferior.pack(side="bottom",fill='x')
+navegacion_inferior.config(bg="#650090", relief="groove")
+
+
+
+botton_hoja_vida = Button(navegacion_inferior, text="Hojas de Vida", relief="flat")
+botton_hoja_vida.place(x=10, y=1)
+botton_hoja_vida.config(bg="#650090", fg="white",font=("Courier New",13))
+
+botton_ordenes_compra = Button(navegacion_inferior, text="Ordenes de compra", relief="flat")
+botton_ordenes_compra.place(x=200, y=1)
+botton_ordenes_compra.config(bg="#650090", fg="white",font=("Courier New",13))
+
+botton_Activos_fijos = Button(navegacion_inferior, text="Activos Fijos", relief="flat")
+botton_Activos_fijos.place(x=500, y=1)
+botton_Activos_fijos.config(bg="#650090", fg="white",font=("Courier New",13))
+
+
+
+
+
+root.mainloop()
