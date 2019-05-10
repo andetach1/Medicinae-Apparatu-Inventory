@@ -4,15 +4,19 @@ import tkinter
 from tkinter import *
 from tkinter import ttk, font
 import getpass
+import psycopg2
+
+
+
 class Aplicacion():
     def __init__(self):
+        conn = psycopg2.connect(database="MAI", user="postgres", host="localhost", password="andetach2014", port="5432")
+        self.cur = conn.cursor()
         self.raiz = Tk()
         gui_style = ttk.Style()
         gui_style.configure('My.TFrame', background='#F4E8F4')
         can= Canvas(self.raiz)
         can.pack(fill=BOTH)
-
-
         self.raiz.geometry("500x400")
         self.raiz.resizable(1,1)
         self.raiz.title("MAI")
@@ -47,14 +51,21 @@ class Aplicacion():
 
         self.ctext2.bind('<button-1>', self.borrar_mensa)
         self.raiz.mainloop()
-
+    def abrir_principal(self):
+        self.ventana.withdraw()
+        self.win=tk.Toplevel()
+        self.win.geometry('380x300+1900+100')
+        self.win.configure(background='yellow')
 
     def valida(self):
-        if self.clave.get() == 'tkinter' :
-            if  self.usuario.get() == 'admin':
-                self.etiq3.configure(foreground='blue')
-                self.mensa.set("Acceso permitido")
-                mi_app = Aplicacion("PRINCIPAL.pyW")
+        sqlquery = "select pwd from usuarios where login ilike '" + self.usuario.get() + "'"
+        self.cur.execute(sqlquery)
+        pwd=self.cur.fetchone()
+        
+        if self.clave.get() == pwd[0] :
+            self.etiq3.configure(foreground='blue')
+            self.mensa.set("Acceso permitido")
+            self.abrir_principal()
         else:
             self.etiq3.configure(foreground='red')
             self.mensa.set("Acceso denegado")
@@ -62,6 +73,7 @@ class Aplicacion():
     def borrar_mensa(self, evento):
         self.clave.set("")
         self.mensa.set("")
+
 
 def main():
     mi_app = Aplicacion()
