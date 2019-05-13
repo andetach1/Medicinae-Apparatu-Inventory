@@ -1,12 +1,11 @@
-Al aire librefrom tkinter import *
+from tkinter import *
 
 root = Tk()
 root.state("zoomed")
-root.geometry("900x600")
+root.geometry("900x700")
 root.title("Medicinae Apparatu Inventory")
 root.iconbitmap('med.ico')
 root.config(cursor="hand2",bg="#f0f0f0")
-
 
 
 
@@ -18,36 +17,110 @@ nombre_cliente = Label(informacion, text="Harold Emmanuel Navas")
 nombre_cliente.place(x=4,y=6)
 nombre_cliente.config(bg="#650090", fg="white", font=("Courier New",13))
 
+Logo = PhotoImage(file="logo_principal.gif")
+Label(root, image=Logo).pack(fill='both',expand='1')
 
-#Frame separador
-separador = Frame(root, width=170, height=600,bg="#650090",bd=1, relief="groove").pack(anchor="w", fill='y',expand='1')
+def bloquear():
+	ventana0 = Tk()
+	ventana0.geometry("800x600")
+	ventana0.title("Medicinae Apparatu Inventory")
+	ventana0.iconbitmap('med.ico')
+	ventana0.config(cursor="hand2",bg="#f0f0f0")	
+	ventana0.update_idletasks()
+	width = ventana0.winfo_width()
+	height = ventana0.winfo_height()
+	x = (ventana0.winfo_screenwidth() // 2) - (width // 2)
+	y = (ventana0.winfo_screenheight() // 2) - (height // 2)
+	ventana0.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
-#botones de navegacion
-botton_bloqueo = Button(separador, text="Bloquear", relief="flat")
-botton_bloqueo.place(x=8, y=60)
-botton_bloqueo.config(bg="#650090", fg="white",font=("Courier New",13))
+	protector_inferior = Frame(ventana0, width=400, height= 30)
+	protector_inferior.pack(side="bottom",fill='x')
+	protector_inferior.config(bg="#650090", relief="groove")
 
-botton_reportes = Button(separador, text="Reportes", relief="flat")
-botton_reportes.place(x=8, y=550)
-botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
 
-botton_inventario = Button(separador, text="Inventario", relief="flat")
-botton_inventario.place(x=8, y=600)
-botton_inventario.config(bg="#650090", fg="white",font=("Courier New",13))
+	nombre_usuario = Label(ventana0, text="Usuario:",font=("Courier New",13)).place(x=250,y=250)
+	nombre_usuario_text = Entry(ventana0,font=("Courier New",13)).place(x=370,y=250)
 
-botton_reportes = Button(separador, text="Reportes", relief="flat")
-botton_reportes.place(x=8, y=650)
-botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
 
-botton_configuracion = Button(separador, text="Configuración", relief="flat")
-botton_configuracion.place(x=8, y=700)
-botton_configuracion.config(bg="#650090", fg="white",font=("Courier New",13))
+	contrasena_usuario= Label(ventana0,text="Contraseña:",font=("Courier New",13)).place(x=250, y=300)
+	contrasena_usuario_text = Entry(ventana0, show="•",font=("Courier New",13)).place(x=370, y=300)
+	
+	botton_reportes = Button(ventana0, text="Ingresar", relief="flat")
+	botton_reportes.place(x=470,y=350)
+	botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
 
+
+
+def abrir_reportes():
+	ventana1 = Tk()
+	ventana1.geometry("1200x650")
+	ventana1.title("Medicinae Apparatu Inventory")
+	ventana1.iconbitmap('med.ico')
+	ventana1.config(cursor="hand2",bg="#f0f0f0")
+
+	#Centrado de la ventana reportes
+
+	ventana1.update_idletasks()
+	width = ventana1.winfo_width()
+	height = ventana1.winfo_height()
+	x = (ventana1.winfo_screenwidth() // 2) - (width // 2)
+	y = (ventana1.winfo_screenheight() // 2) - (height // 2)
+	ventana1.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+	
+	informacion_reportes = Frame(ventana1, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
+
+	nombre_reportes = Label(ventana1, text="reportes")
+	nombre_reportes.place(x=4,y=6)
+	nombre_reportes.config(bg="#650090", fg="white", font=("Courier New",13))
+
+	navegacion_inferior1 = Frame(ventana1, width=400, height= 30)
+	navegacion_inferior1.pack(side="bottom",fill='x')
+	navegacion_inferior1.config(bg="#650090", relief="groove")
+
+	botton_bloqueo = Button(navegacion_inferior1, text="Imprimir hoja de vida", relief="flat")
+	botton_bloqueo.place(x=100)
+	botton_bloqueo.config(bg="#650090", fg="white",font=("Courier New",13))
+	
+	botton_reportes = Button(navegacion_inferior1, text="Imprimir orden de compra", relief="flat",command=abrir_reportes)
+	botton_reportes.place(x=400)
+	botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
+	
+	botton_bajas = Button(navegacion_inferior1, text="Dar de baja ha equipos", relief="flat")
+	botton_bajas.place(x=700)
+	botton_bajas.config(bg="#650090", fg="white",font=("Courier New",13))
+
+	ventana1.mainloop()
+	#botones de navegación
 
 
 #Frame para los Botones de navegación de la aplicación
 navegacion_inferior = Frame(root, width=400, height= 30)
 navegacion_inferior.pack(side="bottom",fill='x')
 navegacion_inferior.config(bg="#650090", relief="groove")
+
+#botones de navegacion
+botton_bloqueo = Button(navegacion_inferior, text="Bloquear", relief="flat", command= bloquear())
+botton_bloqueo.place(x=100)
+botton_bloqueo.config(bg="#650090", fg="white",font=("Courier New",13))
+
+botton_reportes = Button(navegacion_inferior, text="Reportes", relief="flat",command= abrir_reportes)
+botton_reportes.place(x=300)
+botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
+
+botton_inventario = Button(navegacion_inferior, text="Inventario", relief="flat")
+botton_inventario.place(x=500)
+botton_inventario.config(bg="#650090", fg="white",font=("Courier New",13))
+
+botton_reportes = Button(navegacion_inferior, text="Registro", relief="flat")
+botton_reportes.place(x=700)
+botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
+
+botton_configuracion = Button(navegacion_inferior, text="Configuración", relief="flat")
+botton_configuracion.place(x=900)
+botton_configuracion.config(bg="#650090", fg="white",font=("Courier New",13))
+
+#
+
+
 #Finalizacion
 root.mainloop()
