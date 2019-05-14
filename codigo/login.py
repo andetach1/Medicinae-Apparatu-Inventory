@@ -6,9 +6,8 @@ from tkinter import ttk, font
 import getpass
 import psycopg2
 import os
-#import commands
+import sys
 
-#import subproccess
 
 
 
@@ -66,7 +65,8 @@ class Aplicacion():
             self.etiq3.configure(foreground='blue')
             self.mensa.set("Acceso permitido")
             os.system("start PRINCIPAL.pyW")
-            os.system("close login.py")
+            self.raiz.destroy()
+            
            
         else:
             self.etiq3.configure(foreground='red')
