@@ -99,7 +99,7 @@ navegacion_inferior.pack(side="bottom",fill='x')
 navegacion_inferior.config(bg="#650090", relief="groove")
 
 #botones de navegacion
-botton_bloqueo = Button(navegacion_inferior, text="Bloquear", relief="flat", command= bloquear())
+botton_bloqueo = Button(navegacion_inferior, text="Bloquear", relief="flat", command= bloquear)
 botton_bloqueo.place(x=100)
 botton_bloqueo.config(bg="#650090", fg="white",font=("Courier New",13))
 
