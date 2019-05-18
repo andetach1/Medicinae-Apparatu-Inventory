@@ -64,7 +64,7 @@ class Aplicacion():
         if self.clave.get() == pwd[0] :
             self.etiq3.configure(foreground='blue')
             self.mensa.set("Acceso permitido")
-            os.system("start PRINCIPAL.pyW")
+            os.system("start PRINCIPAL.pyW "+self.usuario.get())
             self.raiz.destroy()
             
            
