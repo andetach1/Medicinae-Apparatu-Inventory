@@ -1,19 +1,27 @@
 from tkinter import *
-
+import os
+import sys
+import psycopg2
 root = Tk()
 root.state("zoomed")
 root.geometry("900x700")
 root.title("Medicinae Apparatu Inventory")
 root.iconbitmap('med.ico')
 root.config(cursor="hand2",bg="#f0f0f0")
-
+conn = psycopg2.connect(database="MAI", user="postgres", host="localhost", password="andetach2014", port="5432")
+cur = conn.cursor()
 
 
 #Frame informacion del cliente 
 informacion = Frame(root, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
 
 #Nombre de la empresa dentro del frame
-nombre_cliente = Label(informacion, text="Harold Emmanuel Navas")
+usuario = os.sys.argv[1]
+sqlquery = "select nombre_sede from sedes where cons = (select sede from usuarios where login ilike '" + usuario + "')"
+cur.execute(sqlquery)
+sucursal=cur.fetchone()
+nombre_cliente = Label(informacion, text=sucursal)
+                       #"Harold Emmanuel Navas")
 nombre_cliente.place(x=4,y=6)
 nombre_cliente.config(bg="#650090", fg="white", font=("Courier New",13))
 
