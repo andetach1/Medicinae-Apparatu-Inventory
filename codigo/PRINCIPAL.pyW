@@ -21,7 +21,7 @@ sqlquery = "select nombre_sede from sedes where cons = (select sede from usuario
 cur.execute(sqlquery)
 sucursal=cur.fetchone()
 nombre_cliente = Label(informacion, text=sucursal)
-                       #"Harold Emmanuel Navas")
+                       
 nombre_cliente.place(x=4,y=6)
 nombre_cliente.config(bg="#650090", fg="white", font=("Courier New",13))
 
@@ -29,33 +29,9 @@ Logo = PhotoImage(file="logo_principal.gif")
 Label(root, image=Logo).pack(fill='both',expand='1')
 
 def bloquear():
-	ventana0 = Tk()
-	ventana0.geometry("800x600")
-	ventana0.title("Medicinae Apparatu Inventory")
-	ventana0.iconbitmap('med.ico')
-	ventana0.config(cursor="hand2",bg="#f0f0f0")	
-	ventana0.update_idletasks()
-	width = ventana0.winfo_width()
-	height = ventana0.winfo_height()
-	x = (ventana0.winfo_screenwidth() // 2) - (width // 2)
-	y = (ventana0.winfo_screenheight() // 2) - (height // 2)
-	ventana0.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-
-	protector_inferior = Frame(ventana0, width=400, height= 30)
-	protector_inferior.pack(side="bottom",fill='x')
-	protector_inferior.config(bg="#650090", relief="groove")
-
-
-	nombre_usuario = Label(ventana0, text="Usuario:",font=("Courier New",13)).place(x=250,y=250)
-	nombre_usuario_text = Entry(ventana0,font=("Courier New",13)).place(x=370,y=250)
-
-
-	contrasena_usuario= Label(ventana0,text="Contraseña:",font=("Courier New",13)).place(x=250, y=300)
-	contrasena_usuario_text = Entry(ventana0, show="•",font=("Courier New",13)).place(x=370, y=300)
-	
-	botton_reportes = Button(ventana0, text="Ingresar", relief="flat")
-	botton_reportes.place(x=470,y=350)
-	botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
+        os.system("start login.py ")
+        root.destroy()
+        
 
 
 
