@@ -7,8 +7,6 @@ root.title("Medicinae Apparatu Inventory")
 root.iconbitmap('med.ico')
 root.config(cursor="hand2",bg="#f0f0f0")
 
-
-
 #Frame informacion del cliente 
 informacion = Frame(root, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
 
