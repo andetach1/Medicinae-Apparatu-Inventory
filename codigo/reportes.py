@@ -7,8 +7,6 @@ root.title("Medicinae Apparatu Inventory")
 root.iconbitmap('med.ico')
 root.config(cursor="hand2",bg="#f0f0f0")
 
-
-
 #Frame informacion del cliente 
 informacion = Frame(root, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
 
@@ -37,8 +35,6 @@ botton_ordenes_compra.config(bg="#650090", fg="white",font=("Courier New",13))
 botton_Activos_fijos = Button(navegacion_inferior, text="Activos Fijos", relief="flat")
 botton_Activos_fijos.grid(row=0,column=6, padx=(30))
 botton_Activos_fijos.config(bg="#650090", fg="white",font=("Courier New",13))
-
-
 
 
 root.mainloop()
