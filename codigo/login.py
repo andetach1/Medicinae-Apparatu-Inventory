@@ -8,9 +8,6 @@ import psycopg2
 import os
 import sys
 
-
-
-
 class Aplicacion():
     def __init__(self):
         conn = psycopg2.connect(database="MAI", user="postgres", host="localhost", password="andetach2014", port="5432")
@@ -71,7 +68,6 @@ class Aplicacion():
         else:
             self.etiq3.configure(foreground='red')
             self.mensa.set("Acceso denegado")
-
 
 def main():
     mi_app = Aplicacion()
