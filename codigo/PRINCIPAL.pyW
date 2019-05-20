@@ -11,7 +11,6 @@ root.config(cursor="hand2",bg="#f0f0f0")
 conn = psycopg2.connect(database="MAI", user="postgres", host="localhost", password="andetach2014", port="5432")
 cur = conn.cursor()
 
-
 #Frame informacion del cliente 
 informacion = Frame(root, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
 
@@ -32,9 +31,6 @@ def bloquear():
         os.system("start login.py ")
         root.destroy()
         
-
-
-
 def abrir_reportes():
 	ventana1 = Tk()
 	ventana1.geometry("1200x650")
@@ -76,7 +72,6 @@ def abrir_reportes():
 	ventana1.mainloop()
 	#botones de navegación
 
-
 #Frame para los Botones de navegación de la aplicación
 navegacion_inferior = Frame(root, width=400, height= 30)
 navegacion_inferior.pack(side="bottom",fill='x')
@@ -104,7 +99,5 @@ botton_configuracion.place(x=900)
 botton_configuracion.config(bg="#650090", fg="white",font=("Courier New",13))
 
 #
-
-
 #Finalizacion
 root.mainloop()
