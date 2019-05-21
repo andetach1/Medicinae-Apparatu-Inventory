@@ -15,8 +15,8 @@ cur = conn.cursor()
 informacion = Frame(root, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
 
 #Nombre de la empresa dentro del frame
-usuario = os.sys.argv[1]
-sqlquery = "select nombre_sede from sedes where cons = (select sede from usuarios where login ilike '" + usuario + "')"
+root.usuario = os.sys.argv[1]
+sqlquery = "select nombre_sede from sedes where cons = (select sede from usuarios where login ilike '" + root.usuario + "')"
 cur.execute(sqlquery)
 sucursal=cur.fetchone()
 nombre_cliente = Label(informacion, text=sucursal)
@@ -28,48 +28,14 @@ Logo = PhotoImage(file="logo_principal.gif")
 Label(root, image=Logo).pack(fill='both',expand='1')
 
 def bloquear():
-        os.system("start login.py ")
+        os.system("start login.pyW ")
         root.destroy()
         
 def abrir_reportes():
-	ventana1 = Tk()
-	ventana1.geometry("1200x650")
-	ventana1.title("Medicinae Apparatu Inventory")
-	ventana1.iconbitmap('med.ico')
-	ventana1.config(cursor="hand2",bg="#f0f0f0")
-
-	#Centrado de la ventana reportes
-
-	ventana1.update_idletasks()
-	width = ventana1.winfo_width()
-	height = ventana1.winfo_height()
-	x = (ventana1.winfo_screenwidth() // 2) - (width // 2)
-	y = (ventana1.winfo_screenheight() // 2) - (height // 2)
-	ventana1.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+        
+        os.system("start reportes.pyW "+ root.usuario)
+        root.destroy()
 	
-	informacion_reportes = Frame(ventana1, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
-
-	nombre_reportes = Label(ventana1, text="reportes")
-	nombre_reportes.place(x=4,y=6)
-	nombre_reportes.config(bg="#650090", fg="white", font=("Courier New",13))
-
-	navegacion_inferior1 = Frame(ventana1, width=400, height= 30)
-	navegacion_inferior1.pack(side="bottom",fill='x')
-	navegacion_inferior1.config(bg="#650090", relief="groove")
-
-	botton_bloqueo = Button(navegacion_inferior1, text="Imprimir hoja de vida", relief="flat")
-	botton_bloqueo.place(x=100)
-	botton_bloqueo.config(bg="#650090", fg="white",font=("Courier New",13))
-	
-	botton_reportes = Button(navegacion_inferior1, text="Imprimir orden de compra", relief="flat",command=abrir_reportes)
-	botton_reportes.place(x=400)
-	botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
-	
-	botton_bajas = Button(navegacion_inferior1, text="Dar de baja ha equipos", relief="flat")
-	botton_bajas.place(x=700)
-	botton_bajas.config(bg="#650090", fg="white",font=("Courier New",13))
-
-	ventana1.mainloop()
 	#botones de navegación
 
 #Frame para los Botones de navegación de la aplicación
