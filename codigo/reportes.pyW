@@ -46,5 +46,4 @@ botton_Activos_fijos = Button(navegacion_inferior, text="Activos Fijos", relief=
 botton_Activos_fijos.grid(row=0,column=6, padx=(30))
 botton_Activos_fijos.config(bg="#650090", fg="white",font=("Courier New",13))
 
-
 root.mainloop()
