@@ -49,7 +49,6 @@ class Aplicacion():
 
         self.ctext1.focus_set()
 
-       
         self.raiz.mainloop()
     
 
@@ -63,8 +62,7 @@ class Aplicacion():
             self.mensa.set("Acceso permitido")
             os.system("start PRINCIPAL.pyW "+self.usuario.get())
             self.raiz.destroy()
-            
-           
+                      
         else:
             self.etiq3.configure(foreground='red')
             self.mensa.set("Acceso denegado")
