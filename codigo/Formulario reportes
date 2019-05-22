@@ -15,13 +15,9 @@ nombre_cliente = Label(informacion, text="Harold Emmanuel Navas")
 nombre_cliente.place(x=4,y=6)
 nombre_cliente.config(bg="#650090", fg="white", font=("Courier New",13))
 
-
-
 navegacion_inferior = Frame(root, width=400, height= 35)
 navegacion_inferior.pack(side="bottom",fill='x')
 navegacion_inferior.config(bg="#650090", relief="groove")
-
-
 
 botton_hoja_vida = Button(navegacion_inferior, text="Hojas de Vida", relief="flat")
 botton_hoja_vida.place(x=10, y=1)
@@ -34,9 +30,5 @@ botton_ordenes_compra.config(bg="#650090", fg="white",font=("Courier New",13))
 botton_Activos_fijos = Button(navegacion_inferior, text="Activos Fijos", relief="flat")
 botton_Activos_fijos.place(x=500, y=1)
 botton_Activos_fijos.config(bg="#650090", fg="white",font=("Courier New",13))
-
-
-
-
 
 root.mainloop()
