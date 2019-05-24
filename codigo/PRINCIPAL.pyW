@@ -64,6 +64,5 @@ botton_configuracion = Button(navegacion_inferior, text="Configuración", relief
 botton_configuracion.place(x=900)
 botton_configuracion.config(bg="#650090", fg="white",font=("Courier New",13))
 
-#
 #Finalizacion
 root.mainloop()
