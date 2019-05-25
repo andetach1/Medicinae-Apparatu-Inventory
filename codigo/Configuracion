@@ -13,10 +13,10 @@ rootC.config(cursor="hand2",bg="#f0f0f0")
 def crear_usuarios():
 
 	usuarios_nuevos = Tk()
-	rootC.geometry("800x600")
-	rootC.title("Creación de usuarios")
-	rootC.iconbitmap('med.ico')
-	rootC.config(cursor="hand2",bg="#f0f0f0")
+	usuarios_nuevos.geometry("800x600")
+	usuarios_nuevos.title("Creación de usuarios")
+	usuarios_nuevos.iconbitmap('med.ico')
+	usuarios_nuevos.config(cursor="hand2",bg="#f0f0f0")
 
 	informativo = Label(usuarios_nuevos, text="POR FAVOR INGRESE LOS DATOS DE REGISTRO")
 	informativo.grid(row=0, column=0, sticky="e",pady=30)
