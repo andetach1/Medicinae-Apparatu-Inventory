@@ -18,6 +18,7 @@ informativo.config(bd=1, font=("Courier New",13))
 nombre_usuario = Label(usuarios_nuevos, text="Nombre de usuario:")
 nombre_usuario.grid(row=1, column=0, sticky="e")
 nombre_usuario.config(bd=1, font=("Courier New",13))
+usuarios_nuevos.usuario = os.sys.argv[1]
 
 campo_nombre_usuario = Entry(usuarios_nuevos)
 campo_nombre_usuario.grid(row=1, column=1)
@@ -52,6 +53,16 @@ registrar.grid(row=3,column=4, padx=30,pady=30)
 registrar.config(bg="#650090", fg="white",font=("Courier New",13))
 
 
+def volver() :
+     os.system("start PRINCIPAL.pyW "+ usuarios_nuevos.usuario)
+    root.destroy()
 
+#Botones de navegacion
+navegacion_inferior = Frame(rootC, width=400, height= 35)
+navegacion_inferior.pack(side="bottom",fill='x')
+navegacion_inferior.config(bg="#650090", relief="groove")
 
+atras = Button(navegacion_inferior, text="volver", relief="flat", command=volver)
+atras.grid(row=0,column=0, padx=(30))
+atras.config(bg="#650090", fg="white",font=("Courier New",13))
 usuarios_nuevos.mainloop()
