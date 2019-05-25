@@ -9,7 +9,64 @@ rootC.title("Medicinae Apparatu Inventory")
 rootC.iconbitmap('med.ico')
 rootC.config(cursor="hand2",bg="#f0f0f0")
 
+def empresa_config():
 
+	datos_empresa = Tk()
+	datos_empresa.geometry("1200x400")
+	datos_empresa.title("Creación de usuarios")
+	datos_empresa.iconbitmap('med.ico')
+	datos_empresa.config(cursor="hand2",bg="#f0f0f0")
+	datos_empresa.attributes("-toolwindow", 1)
+
+	informativo = Label(datos_empresa, text="DATOS EMPRESARIALES")
+	informativo.grid(row=0, column=0, sticky="e",pady=30)
+	informativo.config(bd=1, font=("Courier New",13))
+
+	nombre_empresa = Label(datos_empresa, text="Nombre de empresa:")
+	nombre_empresa.grid(row=1, column=0, sticky="e")
+	nombre_empresa.config(bd=1, font=("Courier New",13))
+
+	campo_nombre_empresa = Entry(datos_empresa)
+	campo_nombre_empresa.grid(row=1, column=1)
+	campo_nombre_empresa.config(bd=1, font=("Courier New",13))
+
+	direccion_empresa = Label(datos_empresa, text="Dirección empresa:")
+	direccion_empresa.grid(row=2,column=0, sticky="e", padx=5, pady=5)
+	direccion_empresa.config(bd=1, font=("Courier New",13))
+
+	campo_cedula_usuario = Entry(datos_empresa)
+	campo_cedula_usuario.grid(row=2, column=1, padx=5, pady=5)
+	campo_cedula_usuario.config(bd=1, font=("Courier New",13))
+
+	nit_empresa = Label(datos_empresa, text="Nit empresa:")
+	nit_empresa.grid(row=1,column=2, sticky="e", padx=5, pady=5)
+	nit_empresa.config(bd=1, font=("Courier New",13))
+
+	campo_clave_primaria = Entry(datos_empresa)
+	campo_clave_primaria.grid(row=1, column=3, padx=5, pady=5)
+	campo_clave_primaria.config(bd=1, font=("Courier New",13))
+
+
+	Telefono_empresa = Label(datos_empresa, text="Teléfono empresa:")
+	Telefono_empresa.grid(row=2,column=2, sticky="e", padx=5, pady=5)
+	Telefono_empresa.config(bd=1, font=("Courier New",13))
+
+	campo_telefono = Entry(datos_empresa)
+	campo_telefono.grid(row=2, column=3, padx=5, pady=5)
+	campo_telefono.config(bd=1, font=("Courier New",13))
+
+	modificar = Button(datos_empresa, text="Modificar", relief="flat")
+	modificar.grid(row=3,column=5,pady=30)
+	modificar.config(bg="#650090", fg="white",font=("Courier New",13))
+
+	cancelar = Button(datos_empresa, text="Cancelar", relief="flat")
+	cancelar.grid(row=3,column=4,padx=10,pady=30)
+	cancelar.config(bg="#650090", fg="white",font=("Courier New",13))
+
+
+
+	datos_empresa.mainloop()
+	
 def crear_usuarios():
 
 	usuarios_nuevos = Tk()
@@ -89,7 +146,7 @@ botton_hoja_vida = Button(navegacion_inferior, text="Crear usuarios", relief="fl
 botton_hoja_vida.grid(row=0,column=2, padx=(30))
 botton_hoja_vida.config(bg="#650090", fg="white",font=("Courier New",13))
 
-botton_ordenes_compra = Button(navegacion_inferior, text="Configuración de empresa", relief="flat")
+botton_ordenes_compra = Button(navegacion_inferior, text="Configuración de empresa", relief="flat", command=empresa_config)
 botton_ordenes_compra.grid(row=0,column=4, padx=(30))
 botton_ordenes_compra.config(bg="#650090", fg="white",font=("Courier New",13))
 
