@@ -4,7 +4,7 @@ from tkinter import ttk
 
 rootC = Tk()
 rootC.state("zoomed")
-rootC.geometry("900x600")
+rootC.geometry("1200x600")
 rootC.title("Medicinae Apparatu Inventory")
 rootC.iconbitmap('med.ico')
 rootC.config(cursor="hand2",bg="#f0f0f0")
