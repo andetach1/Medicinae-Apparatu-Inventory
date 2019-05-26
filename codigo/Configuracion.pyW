@@ -63,11 +63,11 @@ def crear_usuarios():
 	sucursal.config(bd=1, font=("Courier New",13))
 	campo_sucursal = Entry(usuarios_nuevos)
 	campo_sucursal.grid(row=3, column=1, padx=5, pady=5)
-	campo_Sucursal.config(bd=1, font=("Courier New",13))
+	campo_sucursal.config(bd=1, font=("Courier New",13))
 	mensa = StringVar()
 	etiq3 = Label(usuarios_nuevos,bg="#F4E8F4", textvariable=mensa,font=("Courier New",13), foreground='blue')
 	etiq3.grid(row=5, column=2, padx=5, pady=5)
-	def registrar():
+	def registrar_usuario():
 		if(campo_clave_primaria == campo_clave_segundaria):
 			sqlquery = "insert into usuarios (login,pwd,grabador,fecha_grab,sede) values ('"+ campo_nombre_usuario +"','"+ campo_clave_primaria +"','"+ rootC.usuario +"',now(),"+ campo_sucursal +");"
 			rootC.cur.execute(sqlquery)
@@ -76,7 +76,7 @@ def crear_usuarios():
 			mensa.set("La contraseña no coincide")
 
 
-	def actualizar():
+	def actualizar_usuario():
 		if(campo_clave_primaria == campo_clave_segundaria):
 			sqlquery = "select cons from usuarios where login ilike '"+ campo_nombre_usuario +"';"
 			rootC.cur.execute(sqlquery)
@@ -92,13 +92,13 @@ def crear_usuarios():
 
 
 
-	registrar = Button(usuarios_nuevos, text="Registrar", relief="flat",command= registrar)
-	registrar.grid(row=3,column=3, padx=30,pady=30)
+	registrar = Button(usuarios_nuevos, text="Registrar", relief="flat",command= registrar_usuario)
+	registrar.grid(row=4,column=3, padx=30,pady=30)
 	registrar.config(bg="#650090", fg="white",font=("Courier New",13))
 
 
-	actualizar = Button(usuarios_nuevos, text="Actualziar", relief="flat",command= actualizar)
-	actualizar.grid(row=3,column=4, padx=30,pady=30)
+	actualizar = Button(usuarios_nuevos, text="Actualizar", relief="flat",command= actualizar_usuario)
+	actualizar.grid(row=4,column=4, padx=30,pady=30)
 	actualizar.config(bg="#650090", fg="white",font=("Courier New",13))
 
 
