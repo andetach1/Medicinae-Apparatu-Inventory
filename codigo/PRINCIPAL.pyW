@@ -40,7 +40,9 @@ def abrir_configuracion():
         os.system("start Configuracion.pyW "+ root.usuario)
         root.destroy()
 
-        
+def abrir_registros():
+        os.system("start registros.py "+ root.usuario)
+        root.destroy()
 #botones de navegación
 
 #Frame para los Botones de navegación de la aplicación
@@ -61,7 +63,7 @@ botton_inventario = Button(navegacion_inferior, text="Inventario", relief="flat"
 botton_inventario.place(x=500)
 botton_inventario.config(bg="#650090", fg="white",font=("Courier New",13))
 
-botton_reportes = Button(navegacion_inferior, text="Registro", relief="flat")
+botton_reportes = Button(navegacion_inferior, text="Registro", relief="flat",command= abrir_registros)
 botton_reportes.place(x=700)
 botton_reportes.config(bg="#650090", fg="white",font=("Courier New",13))
 
