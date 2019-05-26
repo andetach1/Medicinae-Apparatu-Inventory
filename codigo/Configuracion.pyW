@@ -14,7 +14,7 @@ rootC.conn = psycopg2.connect(database="MAI", user="postgres", host="localhost",
 rootC.cur = rootC.conn.cursor()
 
 #usuario
-#rootC.usuario = os.sys.argv[1]
+rootC.usuario = os.sys.argv[1]
 
 def crear_usuarios():
   usuarios_nuevos = Tk()
@@ -71,7 +71,7 @@ def crear_usuarios():
   def registrar_usuario():
           
           if(campo_clave_primaria.get() == campo_clave_segundaria.get()):
-                        sqlquery = "insert into usuarios (login,pwd,cedula,grabador,fecha_grab,sede) values ('"+ campo_nombre_usuario.get() +"','"+ campo_clave_primaria.get() +"','"+ campo_cedula_usuario.get() +"','admin',now(),"+ campo_sucursal.get() +");"
+                        sqlquery = "insert into usuarios (login,pwd,cedula,grabador,fecha_grab,sede) values ('"+ campo_nombre_usuario.get() +"','"+ campo_clave_primaria.get() +"','"+ campo_cedula_usuario.get() +"','"+ rootC.usuario +"',now(),"+ campo_sucursal.get() +");"
                         rootC.cur.execute(sqlquery)
                         rootC.conn.commit()
                         print(rootC.cur.statusmessage)
@@ -88,7 +88,7 @@ def crear_usuarios():
                         print (existe[0])
                         if(existe != None ):
                                 cons= existe[0]
-                                sqlquery = "update usuarios set login = '" + campo_nombre_usuario.get() +"',pwd = '"+ campo_clave_primaria.get() +"',cedula = '"+ campo_cedula_usuario.get() +"',grabador = 'admin',fecha_grab = now(),sede = "+ campo_sucursal.get() +"where cons in ("+ str(cons) +");"
+                                sqlquery = "update usuarios set login = '" + campo_nombre_usuario.get() +"',pwd = '"+ campo_clave_primaria.get() +"',cedula = '"+ campo_cedula_usuario.get() +"',grabador = '"+ rootC.usuario +"',fecha_grab = now(),sede = "+ campo_sucursal.get() +"where cons in ("+ str(cons) +");"
                                 rootC.cur.execute(sqlquery)
                                 rootC.conn.commit()
                                 mensa.set("Usuario actualizado")
