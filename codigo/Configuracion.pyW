@@ -75,9 +75,9 @@ def crear_usuarios():
                         rootC.cur.execute(sqlquery)
                         rootC.conn.commit()
                         print(rootC.cur.statusmessage)
-                        mensa.set("Usuario Registrado")
+                        messagebox.showinfo('', 'Usuario registrado')
           else:
-                        mensa.set("La contraseña no coincide")
+                        messagebox.showinfo('', 'La contraseña no coincide')
       
   def actualizar_usuario():
           
@@ -91,11 +91,11 @@ def crear_usuarios():
                                 sqlquery = "update usuarios set login = '" + campo_nombre_usuario.get() +"',pwd = '"+ campo_clave_primaria.get() +"',cedula = '"+ campo_cedula_usuario.get() +"',grabador = '"+ rootC.usuario +"',fecha_grab = now(),sede = "+ campo_sucursal.get() +"where cons in ("+ str(cons) +");"
                                 rootC.cur.execute(sqlquery)
                                 rootC.conn.commit()
-                                mensa.set("Usuario actualizado")
+                                messagebox.showinfo('', 'Usuario actualizado')
                         else :
-                                mensa.set("El usuario no existe en la base de datos")
+                                messagebox.showinfo('', 'El usuario no existe en la base de datos')
           else :
-                        mensa.set("La contraseña no coincide")
+                        messagebox.showinfo('', 'La contraseña no coincide')
 
   registrar = Button(usuarios_nuevos, text="Registrar", relief="flat",command= registrar_usuario)
   registrar.grid(row=4,column=3, padx=30,pady=30)
