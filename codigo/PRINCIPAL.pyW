@@ -41,7 +41,7 @@ def abrir_configuracion():
         root.destroy()
 
 def abrir_registros():
-        os.system("start registros.py "+ root.usuario)
+        os.system("start registros.pyW "+ root.usuario)
         root.destroy()
 #botones de navegación
 
