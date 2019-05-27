@@ -14,8 +14,7 @@ rootR.iconbitmap('med.ico')
 rootR.config(cursor="hand2",bg="#f0f0f0")
 rootR.conn = psycopg2.connect(database="MAI", user="postgres", host="localhost", password="andetach2014", port="5432")
 rootR.cur = rootR.conn.cursor()
-rootR.usuario = "admin"
-#os.sys.argv[1]
+rootR.usuario = os.sys.argv[1]
 configuracion_tittle = Frame(rootR, width=900, height=40,bg="#650090",bd=3, relief="groove").pack(fill='x')
 
 contorno = Frame(rootR, width=1200, height= 700)
